@@ -38,7 +38,7 @@ function App() {
   }, []);
 
   const fetchSubjects = (authToken) => {
-    axios.get('http://sanyamnc.ddns.net:5000/api/subjects', {
+    axios.get('https://study-manager.onrender.com/api/subjects', {
       headers: { 'Authorization': authToken }
     })
       .then(response => setSubjects(response.data))
@@ -46,7 +46,7 @@ function App() {
   };
 
   const fetchChapterDuration = (chapterId, authToken) => {
-    return axios.get(`http://sanyamnc.ddns.net:5000/api/chapters/${chapterId}/duration`, {
+    return axios.get(`https://study-manager.onrender.com/api/chapters/${chapterId}/duration`, {
       headers: { 'Authorization': authToken }
     })
       .then(response => {
@@ -63,7 +63,7 @@ function App() {
   };
 
   const fetchChapters = (subjectId, authToken) => {
-    axios.get(`http://sanyamnc.ddns.net:5000/api/subjects/${subjectId}/chapters`, {
+    axios.get(`https://study-manager.onrender.com/api/subjects/${subjectId}/chapters`, {
       headers: { 'Authorization': authToken }
     })
       .then(response => {
@@ -88,7 +88,7 @@ function App() {
       .catch(error => console.error(error));
   };
   const fetchLectures = (chapterId, authToken) => {
-    axios.get(`http://sanyamnc.ddns.net:5000/api/chapters/${chapterId}/lectures`, {
+    axios.get(`https://study-manager.onrender.com/api/chapters/${chapterId}/lectures`, {
       headers: { 'Authorization': authToken }
     })
       .then(response => {
@@ -100,7 +100,7 @@ function App() {
   };
 
   const fetchSubjectDuration = (subjectId, authToken) => {
-    axios.get(`http://sanyamnc.ddns.net:5000/api/subjects/${subjectId}/duration`, {
+    axios.get(`https://study-manager.onrender.com/api/subjects/${subjectId}/duration`, {
       headers: { 'Authorization': authToken }
     })
       .then(response => {
@@ -113,7 +113,7 @@ function App() {
   };
 
   const toggleWatchedStatus = (lectureId, authToken) => {
-    return axios.put(`http://sanyamnc.ddns.net:5000/api/lectures/${lectureId}/toggle-watched`, {}, {
+    return axios.put(`https://study-manager.onrender.com/api/lectures/${lectureId}/toggle-watched`, {}, {
       headers: { 'Authorization': authToken }
     })
       .then(response => {
@@ -161,7 +161,7 @@ function App() {
   };
 
   const handleRegister = () => {
-    axios.post('http://sanyamnc.ddns.net:5000/api/register', { username, password })
+    axios.post('https://study-manager.onrender.com/api/register', { username, password })
       .then(response => {
         alert('Registration successful');
       })
@@ -172,7 +172,7 @@ function App() {
   };
 
   const handleLogin = () => {
-    axios.post('http://sanyamnc.ddns.net:5000/api/login', { username, password })
+    axios.post('https://study-manager.onrender.com/api/login', { username, password })
       .then(response => {
         setToken(response.data.token);
         localStorage.setItem('token', response.data.token);
